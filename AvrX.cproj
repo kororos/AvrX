@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
+    <ProjectGuid>{e38839b5-44ad-4b1f-9a7c-6af08ade0b71}</ProjectGuid>
+    <avrdevice>ATmega1284P</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>StaticLibrary</OutputType>
+    <Language>C</Language>
+    <OutputFileName>lib$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.a</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AvrGccProjectExtensions>
+    </AvrGccProjectExtensions>
+    <AssemblyName>AvrX</AssemblyName>
+    <Name>AvrX</Name>
+    <RootNamespace>AvrX</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <AsfVersion>2.11.1</AsfVersion>
+    <avrtool />
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <avrtoolinterface />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc xmlns="">
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>m</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.warnings.Undefined>True</avrgcc.compiler.warnings.Undefined>
+        <avrgcc.compiler.warnings.WarningsAsErrors>True</avrgcc.compiler.warnings.WarningsAsErrors>
+        <avrgcc.compiler.warnings.Pedantic>True</avrgcc.compiler.warnings.Pedantic>
+        <avrgcc.compiler.warnings.PedanticWarningsAsErrors>True</avrgcc.compiler.warnings.PedanticWarningsAsErrors>
+        <avrgcc.compiler.warnings.InhibitAllWarnings>True</avrgcc.compiler.warnings.InhibitAllWarnings>
+        <avrgcc.compiler.miscellaneous.Verbose>True</avrgcc.compiler.miscellaneous.Verbose>
+        <avrgcc.linker.general.UseVprintfLibrary>True</avrgcc.linker.general.UseVprintfLibrary>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>m</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.linker.miscellaneous.LinkerFlags>-u,vfscanf</avrgcc.linker.miscellaneous.LinkerFlags>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="avrx-io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx-signal.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="AvrXFifo.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="AvrXFifo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="AvrXKernel.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_canceltimer.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_canceltimermessage.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="avrx_canceltimer_exp.S">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="avrx_eeprom.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_generatesinglestepinterrupt.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_message.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_priority.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_recvmessage.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_reschedule.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_resetsemaphore.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_semaphores.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_singlestep.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_starttimermessage.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_suspend.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_tasking.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_terminate.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_testsemaphore.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="avrx_timequeue.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="avrx_timequeue_exp.S">
+      <SubType>compile</SubType>
+    </None>
+    <Compile Include="monitor.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="serialio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <None Include="serialio.S">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="avrx-ctoasm.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="avrx.inc">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="AvrXFifo_documentation.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="avrx_notes.txt">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="README.txt">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
